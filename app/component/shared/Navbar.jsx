@@ -4,8 +4,8 @@ import Link from "next/link";
 const Navbar = () => {
   return (
     
-  <div className="contener">
-     <div className="navbar bg-base-100">
+  <div className="bg-base-300 text-stone-600 mx-auto">
+     <div className="navbar container px-16 ">
   <div className="navbar-start">
     {/* <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -37,8 +37,8 @@ const Navbar = () => {
       </ul>
     </div> */}
     <Link href='/'>
-    {/* <Image alt='loge-image' src='/app/public/assets/logo.svg' hight={60} width={50}></Image> */}
-    <Image  alt='loge-image' src='public/assets/images/logo.svg' height={60} width={50}></Image>
+    
+    <Image  alt='loge-image' src='/assets/images/logo.svg' height={60} width={50}></Image>
     </Link>
   </div>
   <div className="navbar-center hidden lg:flex">
