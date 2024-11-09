@@ -23,15 +23,7 @@ return (
             <div className="border-2 p-10 rounded-xl">
               <h1 className="text-4xl text-center font-bold">Login Page</h1>
               <form onSubmit={handelLogin} className="space-y-3 mt-6">
-                {/* <label htmlFor="name">Name</label>
-                <br></br>
-                <input
-                  name="name"
-                  type="text"
-                  placeholder="Your Name"
-                  className="input input-bordered w-full  "
-                />
-                <br></br> */}
+                
                 <label htmlFor="email"> Email</label>
                 <br></br>
                 <input
