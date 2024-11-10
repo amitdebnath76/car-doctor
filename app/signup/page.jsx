@@ -1,11 +1,32 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { ImGithub } from "react-icons/im";
 const page = () => {
+  const [name,setName] = useState('');
+  const [email,setEmail] = useState('');
+  const [password,setPassword] = useState('');
+  
   const handelSignUp = async (event) => {
     event.preventDefault();
+
+    let result = await fetch('http://localhost:3000/signup/api',{
+      method:"POST",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body:JSON.stringify({name,email,password})
+    })
+    result = await result.json();
+    console.log(result)
+    if(result){
+      alert('Your Sign Up Is Successful')
+      setName('')
+      setEmail('')
+      setPassword('')
+    }
   };
   return (
     <div className="mt-16">
@@ -24,31 +45,34 @@ const page = () => {
             <label htmlFor="name">Name</label>
             <br></br>
             <input
-             
+             value={name}
               name="name"
               type="text"
               placeholder="Your Name"
               className="input input-bordered w-full  "
+              onChange={(event)=>setName(event.target.value)}
             />
             <br></br>
             <label htmlFor="email"> Email</label>
             <br></br>
             <input
-             
+             value={email}
               name="email"
               type="email"
               placeholder="Your Email"
               className="input input-bordered w-full "
+              onChange={(event)=> setEmail(event.target.value)}
             />
             <br></br>
             <label htmlFor="password">Password</label>
             <br></br>
             <input
-            
+              value={password}
               name="password"
               type="password"
               placeholder="Your Password"
               className="input input-bordered w-full mb-3"
+              onChange={(event)=> setPassword(event.target.value)}
             />
             <br></br>
             <button type="submit" className="btn btn-primary w-full">
